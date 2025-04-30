@@ -24,12 +24,12 @@ export default function PizzaForm() {
 
   function handleFullName(event) {
     const { value } = event.target;
-    dispatch({ type: changeFullName, payload: value });
+    dispatch(changeFullName(value));
   };
 
   function handleSize(event) {
     const { value } = event.target;
-    dispatch({ type: changeSize, payload: value });
+    dispatch(changeSize(value));
   };
 
   function handleToppings(event) {
@@ -37,7 +37,7 @@ export default function PizzaForm() {
     // console.log(name);
     // control with an if statement a way we can prevent the same name value to appear inside of the array
     // dispatch is adding the name value to the toggleTopping
-    dispatch({ type: toggleTopping, payload: name });
+    dispatch(toggleTopping(name));
     console.log(orderToppings);
   };
 

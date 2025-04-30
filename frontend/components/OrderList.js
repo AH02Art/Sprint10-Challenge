@@ -10,7 +10,7 @@ export default function OrderList() {
 
   function handleSelectSize(event) {
     const { innerText } = event.target;
-    dispatch({ type: filterChange, payload: innerText });
+    dispatch(filterChange(innerText));
   };
 
   return (
@@ -25,8 +25,9 @@ export default function OrderList() {
             .map((order) => {
             return (
               <li key={order.id}>
-                {order.toppings && (<div>{order.customer} ordered a size {order.size} with {order.toppings.length} topping{order.toppings.length !== 1 ? "s" : "" }</div>)}
-                {!order.toppings && (<div>{order.customer} ordered a size {order.size} with no toppings</div>)}
+                <div>{`${order.customer} ordered a size ${order.size} with ${order.toppings ? order.toppings.length : "no"} topping${order?.toppings?.length !== 1 ? "s" : "" }`}</div>
+                {/* {order.toppings && (<div>{order.customer} ordered a size {order.size} with {order.toppings.length} topping{order.toppings.length !== 1 ? "s" : "" }</div>)}
+                {!order.toppings && (<div>{order.customer} ordered a size {order.size} with no toppings</div>)} */}
               </li>
             )
           })
